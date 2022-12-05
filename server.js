@@ -14,6 +14,7 @@ const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
 // Used to parse data from HTML forms
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 
 // Requiring exported variables from each of our routes
 const indexRouter = require("./routes/index");
@@ -26,6 +27,7 @@ app.set("views", path.join(__dirname, "views"));
 // setting layout path
 app.set("layout", "layouts/layout");
 app.use(expressLayouts);
+app.use(methodOverride("_method"));
 // Declaring a public folder for style pages etc
 app.use(express.static("public"));
 // Using bodyParser
